@@ -6,6 +6,6 @@ class Transaction(db.Model):
     user_id = db.Column(db.Integer, nullable=False)
     group_id = db.Column(db.Integer, nullable=False)
     amount = db.Column(db.Float, nullable=False)
-    type = db.Column(db.String(50), nullable=False)  # 'deposit' or 'service_charge'
+    type = db.Column(db.String(50), nullable=False)  
     timestamp = db.Column(db.DateTime, server_default=db.func.now())
     description = db.Column(db.String(255))

@@ -15,7 +15,7 @@ def create_transaction():
     user_id = get_jwt_identity()
     group_id = data.get('group_id')
     amount = data.get('amount')
-    type_ = data.get('type')  # 'deposit' or 'service_charge'
+    type_ = data.get('type') 
     description = data.get('description', '')
     if type_ not in ['deposit', 'service_charge']:
         return jsonify({'error': 'Invalid transaction type'}), 400

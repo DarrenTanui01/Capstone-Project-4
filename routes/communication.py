@@ -13,7 +13,7 @@ messages_schema = MessageSchema(many=True)
 reminder_schema = ReminderSchema()
 reminders_schema = ReminderSchema(many=True)
 
-# Send a message to a group
+
 @communication_bp.route('/messages', methods=['POST'])
 @jwt_required()
 def send_message():
@@ -28,7 +28,7 @@ def send_message():
     db.session.commit()
     return message_schema.jsonify(message), 201
 
-# Get messages for a group
+
 @communication_bp.route('/messages/<int:group_id>', methods=['GET'])
 @jwt_required()
 def get_group_messages(group_id):
@@ -53,7 +53,7 @@ def create_reminder():
     db.session.commit()
     return reminder_schema.jsonify(reminder), 201
 
-# Get reminders for a user
+
 @communication_bp.route('/reminders', methods=['GET'])
 @jwt_required()
 def get_reminders():
