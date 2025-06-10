@@ -25,4 +25,8 @@ def create_app():
     with app.app_context():
         db.create_all()
 
+    @app.route("/")
+    def index():
+        return "Proxima Centauri API is running!", 200
+
     return app
