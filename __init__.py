@@ -6,6 +6,7 @@ from routes.transaction import transaction_bp
 from routes.savings import savings_bp
 from routes.communication import communication_bp
 from flask_jwt_extended import JWTManager
+from flask_cors import CORS
 
 def create_app():
     app = Flask(__name__)
@@ -21,6 +22,7 @@ def create_app():
     app.register_blueprint(communication_bp, url_prefix='/api')
 
     jwt = JWTManager(app)
+    CORS(app)
 
     with app.app_context():
         db.create_all()
